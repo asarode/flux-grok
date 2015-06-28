@@ -1,3 +1,4 @@
 var tee = hee,
 	aww = yiss,
-	foo = bar;
+	foo = bar,
+	yin = yang;
