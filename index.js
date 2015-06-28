@@ -1,2 +1,3 @@
 var tee = hee,
-	aww = yiss;
+	aww = yiss,
+	foo = bar;
