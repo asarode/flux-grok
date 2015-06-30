@@ -8,7 +8,7 @@ var browserify  = require('browserify');
 var browserSync = require('browser-sync');
 
 // Input file.
-var bundler     = watchify(browserify('./app/scripts/app.js', watchify.args));
+var bundler     = watchify(browserify('./public/scripts/main.js', watchify.args));
 
 // React JSX transform
 bundler.transform(reactify);
@@ -46,6 +46,6 @@ gulp.task('bundle', function () {
  */
 gulp.task('default', ['bundle'], function () {
     browserSync({
-        server: "./app"
+        server: "./public"
     });
 });

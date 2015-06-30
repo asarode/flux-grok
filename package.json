@@ -9,7 +9,8 @@
   "license": "MIT",
   "dependencies": {
     "alt": "^0.16.10",
-    "browser-sync": "^2.1.6"
+    "browser-sync": "^2.1.6",
+    "rethinkdb": "^2.0.2"
   },
   "devDependencies": {
     "babelify": "^6.1.2",
