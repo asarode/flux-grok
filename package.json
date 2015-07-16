@@ -4,12 +4,13 @@
   "description": "Browserify, Babel (6to5) & React example",
   "main": "gulpfile.js",
   "scripts": {
-    "start": "gulp"
+    "dev": "gulp"
   },
   "license": "MIT",
   "dependencies": {
     "alt": "^0.16.10",
     "browser-sync": "^2.1.6",
+    "react-tap-event-plugin": "^0.1.7",
     "rethinkdb": "^2.0.2"
   },
   "devDependencies": {
