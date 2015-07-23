@@ -1,51 +1,27 @@
-var gulp        = require('gulp');
-var gutil       = require('gulp-util');
-var source      = require('vinyl-source-stream');
-var babelify    = require('babelify');
-var reactify    = require('reactify');
-var watchify    = require('watchify');
-var browserify  = require('browserify');
-var browserSync = require('browser-sync');
+var gulp = require('gulp');
+var browserify = require('browserify');
+var babelify = require('babelify');
+var source = require('vinyl-source-stream');
 
-// Input file.
-var bundler     = watchify(browserify('./public/scripts/main.js', watchify.args));
-
-// React JSX transform
-bundler.transform(reactify);
-
-// Babel transform
-bundler.transform(babelify);
-
-// On updates recompile
-bundler.on('update', bundle);
-
-function bundle() {
-
-    gutil.log('Compiling JS...');
-
-    return bundler.bundle()
-        .on('error', function (err) {
-            gutil.log(err.message);
-            browserSync.notify("Browserify Error!");
-            this.emit("end");
-        })
-        .pipe(source('bundle.js'))
-        .pipe(gulp.dest('./dist'))
-        .pipe(browserSync.reload({stream: true, once: true}));
-}
-
-/**
- * Gulp task alias
- */
-gulp.task('bundle', function () {
-    return bundle();
+gulp.task('browserify', function() {
+    browserify('./public/scripts/main.js')
+      .transform(babelify.configure({
+        optional: ['es7.decorators']
+      }))
+      .bundle()
+      .pipe(source('bundle.js'))
+      .pipe(gulp.dest('dist/scripts'));
 });
 
-/**
- * First bundle, then serve from the ./app directory
- */
-gulp.task('default', ['bundle'], function () {
-    browserSync({
-        server: "./public"
-    });
+gulp.task('copy',function() {
+    gulp.src('public/index.html')
+      .pipe(gulp.dest('dist'));
+    gulp.src('public/styles/*.*')
+      .pipe(gulp.dest('dist/styles'));
+    gulp.src('public/src/assets/**/*.*')
+      .pipe(gulp.dest('dist/assets'));
+});
+
+gulp.task('default',['browserify', 'copy'], function() {
+    return gulp.watch('public/src/**/*.*', ['browserify', 'copy'])
 });

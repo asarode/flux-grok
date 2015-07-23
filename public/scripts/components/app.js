@@ -1,18 +1,22 @@
 'use strict';
 
 import React from 'react';
-import { RouteHandler } from 'react-router';
+import cx from 'classname';
 
 class App extends React.Component {
-	render() {
-		return (
-			<div>
-				<RouteHandler {...this.props} />
-			</div>
-		);
-	}
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  render() {
+    return (
+      <h1>Flux Grok</h1>
+    );
+  }
 }
 
-App.childContextTypes = {
-	router: React.PropTypes.func
-};
+App.PropTypes = {};
+
+App.defaultProps = {};
+
+export default App;

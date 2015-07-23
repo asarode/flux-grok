@@ -1,12 +1,9 @@
-'use strict'
+'use strict';
 
-var React = require("react");
+import React from 'react';
+import Router from 'react-router';
+import Routes from './routes';
 
-var App = React.createClass({
-    render() {
-        return <h2>Browsersync is really cool</h2>
-    }
+Router.run(Routes, (Root) => {
+	React.render(<Root/>, document.getElementById('root'));
 });
-
-React.render(<App/>, document.getElementById('example'));
-

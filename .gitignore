@@ -19,6 +19,9 @@ coverage
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
+# OS Generates
+.DS_STORE
+
 # Node modules
 node_modules
 
