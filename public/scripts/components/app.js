@@ -2,6 +2,8 @@
 
 import React from 'react';
 import cx from 'classname';
+import Header from './header';
+import TopBar from './topBar';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,7 +12,10 @@ class App extends React.Component {
   }
   render() {
     return (
-      <h1>Flux Grok</h1>
+      <div>
+        <Header/>
+        <TopBar/>
+      </div>
     );
   }
 }
