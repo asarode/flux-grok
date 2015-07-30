@@ -1,27 +1,27 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import cx from 'classname';
-import Header from './header';
-import TopBar from './topBar';
+import React from 'react'
+import cx from 'classname'
+import Header from './header'
+import ApplicantList from './applicant-list'
 
 class App extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {};
+    super(props)
+    this.state = {}
   }
   render() {
     return (
       <div>
         <Header/>
-        <TopBar/>
+        <ApplicantList/>
       </div>
-    );
+    )
   }
 }
 
-App.PropTypes = {};
+App.PropTypes = {}
 
-App.defaultProps = {};
+App.defaultProps = {}
 
-export default App;
+export default App

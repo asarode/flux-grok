@@ -1,0 +1,39 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.fg-bar-main {
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.fg-bar-title {
+  margin: 0;
+}
+
+.fg-navbar-wrapper {
+  margin: 0;
+}
+
+.fg-navbar {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.fg-navbar-item {
+  display: inline-block;
+  padding: 20px 20px;
+}
+
+.fg-navbar-link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.fg-navbar-link--active {
+  text-decoration: underline;
+}
