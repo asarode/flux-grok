@@ -65,6 +65,7 @@ class ApplicantCreate extends React.Component {
   }
 
   onSubmit(e) {
+    console.log(e)
     let { applicant } = this.state
     if (applicant.name.length > 3 && applicant.bio.length > 3) {
       ApplicantActions.create(applicant)

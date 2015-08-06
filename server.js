@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
   res.send({ message: 'Aw yiss!' })
 })
 
-app.get('/applicants', (req, res) => {
+app.get('/api/applicants', (req, res) => {
   Applicant
     .find()
     .sort('-createdAt')
@@ -57,7 +57,7 @@ app.get('/applicants', (req, res) => {
     })
 })
 
-app.get('/applicants/:id', (req, res) => {
+app.get('/api/applicants/:id', (req, res) => {
   Applicant.findById(req.params.id, (err, data) => {
     if (err) {
       res
@@ -69,26 +69,24 @@ app.get('/applicants/:id', (req, res) => {
   })
 })
 
-app.post('/applicants', (req, res) => {
+app.post('/api/applicants', (req, res) => {
   let applicant   = new Applicant()
   applicant.name  = req.body.name
   applicant.bio   = req.body.bio
-
   applicant
     .save((err, data) => {
       if (err) {
         console.error(err)
         res
-        .status(500)
-        .send({ message: 'Error saving new applicant: ', err })
+          .status(500)
+          .send({ message: 'Error saving new applicant: ', err })
         return
       }
-      console.log(data)
       res.send(data)
     })
 })
 
-app.put('/applicants/:id', (req, res) => {
+app.put('/api/applicants/:id', (req, res) => {
   let update = { $set: { status: req.body.status } }
   Applicant
     .findByIdAndUpdate(req.params.id, update, (err, data) => {
@@ -108,7 +106,7 @@ app.put('/applicants/:id', (req, res) => {
     })
 })
 
-app.delete('/applicants/:id', (req, res) => {
+app.delete('/api/applicants/:id', (req, res) => {
   Applicant.remove({ _id: req.params.id }, (err, data) => {
     if (err) {
       res

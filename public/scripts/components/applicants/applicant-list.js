@@ -31,13 +31,20 @@ class ApplicantList extends React.Component {
   }
 
   render() {
-    console.log(this.state.status)
     let { status, search } = this.state
     let { applicants } = this.props
     return (
       <div>
         <div className="fg-navbar-wrapper">
           <ul className="fg-navbar">
+            <li
+              ref="refresh"
+              className="fg-navbar-item">
+              <button 
+                onClick={this.fetch.bind(this)}>
+                Refresh
+              </button>
+            </li>
             <li
               ref="all"
               onClick={this.onSwitch.bind(this, 'all')}

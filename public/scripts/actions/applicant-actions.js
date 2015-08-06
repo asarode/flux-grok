@@ -4,7 +4,7 @@ import axios from 'axios'
 import alt from '../alt'
 import qs from 'qs'
 
-let base = 'http://localhost:5000'
+let base = 'http://localhost:5000/api'
 
 class ApplicantActions {
 
@@ -22,7 +22,6 @@ class ApplicantActions {
   }
 
   create(item) {
-    console.log('asda')
     let url = `${base}/applicants`
     axios
       .post(url, item)
