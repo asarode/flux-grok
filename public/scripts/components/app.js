@@ -1,9 +1,6 @@
 'use strict'
 
 import React from 'react'
-import cx from 'classname'
-import Header from './header'
-import { RouteHandler } from 'react-router'
 
 class App extends React.Component {
   constructor(props) {
@@ -13,8 +10,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header/>
-        <RouteHandler/>
+        {/* 1) Let's write a Header components to display here instead of this*/}
+        <h1>Shmounder House</h1>
+
+        {/* 2) Then let's start building out the ApplicantList component */}
       </div>
     )
   }

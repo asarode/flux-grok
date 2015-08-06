@@ -2,36 +2,14 @@
 
 import React from 'react'
 import cx from 'classname'
-import FilterCardList from './filter-card-list'
-import ApplicantStore from '../../stores/applicant-store'
-import ApplicantActions from '../../actions/applicant-actions'
-import connectToStores from 'alt/utils/connectToStores'
-import alt from 'alt'
-import { Navigation  } from 'react-router';
 
 class ApplicantList extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      search: '',
-      status: 'all'
-    }
-  }
-
-  static getStores() {
-    return [ApplicantStore]
-  }
-
-  static getPropsFromStores() {
-    return ApplicantStore.getState()
-  }
-
-  componentDidMount() {
-    this.fetch()
+    this.state = {}
   }
 
   render() {
-    let { status, search } = this.state
     let { applicants } = this.props
     return (
       <div>
@@ -40,89 +18,73 @@ class ApplicantList extends React.Component {
             <li
               ref="refresh"
               className="fg-navbar-item">
-              <button 
-                onClick={this.fetch.bind(this)}>
-                Refresh
-              </button>
+              <button>Refresh</button>
             </li>
-            <li
-              ref="all"
-              onClick={this.onSwitch.bind(this, 'all')}
-              className={cx('fg-navbar-item', 'fg-navbar-link', {
-                'fg-navbar-link--active': status === 'all'
-              })}>
+            <li className="fg-navbar-item fg-navbar-link">
               All
             </li>
-            <li
-              ref="reviewing"
-              onClick={this.onSwitch.bind(this, 'reviewing')}
-              className={cx('fg-navbar-item', 'fg-navbar-link', {
-                'fg-navbar-link--active': status === 'reviewing'
-              })}>
+            <li className="fg-navbar-item fg-navbar-link">
               Reviewing
             </li>
-            <li
-              ref="accepted"
-              onClick={this.onSwitch.bind(this, 'accepted')}
-              className={cx('fg-navbar-item', 'fg-navbar-link', {
-                'fg-navbar-link--active': status === 'accepted'
-              })}>
+            <li className="fg-navbar-item fg-navbar-link">
               Accepted
             </li>
             <li
               className="fg-navbar-item">
               <input 
                 type="text"
-                placeholder="Enter name..."
-                onChange={this.onSearchInput.bind(this)}/>
+                placeholder="Enter name..." />
             </li>
-            <li
-              ref="create"
-              className="fg-navbar-item">
-              <button 
-                onClick={this.transitionToCreate.bind(this)}>
-                + Enter New Applicant
-              </button>
+            <li className="fg-navbar-item">
+              <button>+ Enter New Applicant</button>
             </li>
           </ul>
         </div>
-        <FilterCardList
-          search={search}
-          applicants={applicants}
-          status={status} />
+        {/* 1) Add in a FilterCardList component here and pass in mock data */}
       </div>
     )
   }
 
-  transitionToCreate() {
-    this.context.router.transitionTo('/applicants/create')
-  }
-
-  fetch() {
-    ApplicantActions.fetch()
-  }
-
-  onSearchInput(e) {
-    this.setState({
-      search: e.target.value
-    })
-  }
-
-  onSwitch(switchAction) {
-    this.setState({
-      status: switchAction
-    })
+  get mockApplicants() {
+    return [
+      {
+        name: 'First Last',
+        status: 'reviewing',
+        bio: 'What a cool kid.',
+        createdAt: '2015-08-06T10:21:17.701Z'
+      },
+      {
+        name: 'Name Bob',
+        status: 'accepted',
+        bio: 'What a cool kid.',
+        createdAt: '2015-08-06T10:21:17.701Z'
+      },
+      {
+        name: 'Chun Li',
+        status: 'reviewing',
+        bio: 'What a cool kid.',
+        createdAt: '2015-08-06T10:21:17.701Z'
+      },
+      {
+        name: 'Ellie Phant',
+        status: 'reviewing',
+        bio: 'What a cool kid.',
+        createdAt: '2015-08-06T10:21:17.701Z'
+      },
+      {
+        name: 'Germany Canada',
+        status: 'reviewing',
+        bio: 'What a cool kid.',
+        createdAt: '2015-08-06T10:21:17.701Z'
+      },
+    ]
   }
 }
 
 ApplicantList.PropTypes = {}
 
-ApplicantList.defaultProps = {
-  applicants: []
-}
+ApplicantList.defaultProps = {}
 
-ApplicantList.contextTypes = {
-  router: React.PropTypes.func.isRequired
-}
+ApplicantList.contextTypes = {}
 
-export default connectToStores(ApplicantList)
+export default ApplicantList

@@ -19,35 +19,13 @@ class FilterCardList extends React.Component {
   }
 
   get cards() {
-    let { applicants, search, status } = this.props
-    let nameFilter = (item) => {
-      return item.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
-    }
-    let statusFilter = (item) => {
-      return status === 'all' || item.status === status
-    }
-    let cardMap = (item, i) => {
-      return this.card(item, i)
-    }
-    return applicants
-            .filter(nameFilter)
-            .filter(statusFilter)
-            .map(cardMap)
-  }
-
-  card(item, key) {
-    return (
-      <ApplicantCard
-        key={key}
-        item={item}/>
-    )
+    // 1) Render the applicant cards by mapping each object in the applicant
+    //    array to an ApplicantCard component with the right props
   }
 }
 
 FilterCardList.PropTypes = {
-  applicants: React.PropTypes.array,
-  status: React.PropTypes.object,
-  search: React.PropTypes.string
+  applicants: React.PropTypes.array
 }
 
 FilterCardList.defaultProps = {

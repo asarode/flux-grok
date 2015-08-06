@@ -1,7 +1,5 @@
-import list from './applicant-list'
-import create from './applicant-create'
+import ApplicantList from './applicant-list'
 
 export default {
-  list,
-  create
+  ApplicantList
 }
