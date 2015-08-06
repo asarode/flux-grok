@@ -3,10 +3,31 @@
 import React from 'react'
 import cx from 'classname'
 
+// Import the stores, actions, and utils we need for flux
+
+import FilterCardList from './filter-card-list'
+
 class ApplicantList extends React.Component {
   constructor(props) {
     super(props)
+    // What states are we going to need to know for filtering the applicants?
     this.state = {}
+  }
+
+  // Get connected to the store(s) you need
+  static getStore() {
+    
+  }
+
+  // Get state from store(s)
+  // The state will become attached to this component's props
+  static getPropsFromStores() {
+    
+  }
+
+  // Fetch data when component mounts
+  componentDidMount() {
+
   }
 
   render() {
@@ -40,51 +61,25 @@ class ApplicantList extends React.Component {
             </li>
           </ul>
         </div>
-        {/* 1) Add in a FilterCardList component here and pass in mock data */}
+
+        {/* We need to pass in other props so this component can filter through
+           the applicants and give us what we want */}
+        <FilterCardList
+          applicants={this.props.applicants}/>
       </div>
     )
   }
-
-  get mockApplicants() {
-    return [
-      {
-        name: 'First Last',
-        status: 'reviewing',
-        bio: 'What a cool kid.',
-        createdAt: '2015-08-06T10:21:17.701Z'
-      },
-      {
-        name: 'Name Bob',
-        status: 'accepted',
-        bio: 'What a cool kid.',
-        createdAt: '2015-08-06T10:21:17.701Z'
-      },
-      {
-        name: 'Chun Li',
-        status: 'reviewing',
-        bio: 'What a cool kid.',
-        createdAt: '2015-08-06T10:21:17.701Z'
-      },
-      {
-        name: 'Ellie Phant',
-        status: 'reviewing',
-        bio: 'What a cool kid.',
-        createdAt: '2015-08-06T10:21:17.701Z'
-      },
-      {
-        name: 'Germany Canada',
-        status: 'reviewing',
-        bio: 'What a cool kid.',
-        createdAt: '2015-08-06T10:21:17.701Z'
-      },
-    ]
-  }
 }
 
-ApplicantList.PropTypes = {}
+ApplicantList.PropTypes = {
+  applicants: React.PropTypes.array
+}
 
-ApplicantList.defaultProps = {}
+ApplicantList.defaultProps = {
+  applicants: []
+}
 
 ApplicantList.contextTypes = {}
 
+// Add the connectToStores context to the component
 export default ApplicantList

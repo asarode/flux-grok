@@ -14,6 +14,8 @@ class ApplicantCard extends React.Component {
   render() {
     let { item } = this.props
 
+
+    // Add in the ability to change the applicant's status and allow deleting
     return (
       <div className="fg-applicant-card">
         <div className="fg-applicant-card-head">

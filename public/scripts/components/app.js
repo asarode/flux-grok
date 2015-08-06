@@ -2,6 +2,9 @@
 
 import React from 'react'
 
+import Header from './header'
+import { ApplicantList } from './applicants'
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -10,12 +13,46 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {/* 1) Let's write a Header components to display here instead of this*/}
-        <h1>Shmounder House</h1>
-
-        {/* 2) Then let's start building out the ApplicantList component */}
+        <Header/>
+        <ApplicantList
+          applicants={this.mockApplicants}/>
       </div>
     )
+  }
+  
+  get mockApplicants() {
+    return [
+      {
+        name: 'First Last',
+        status: 'reviewing',
+        bio: 'What a cool kid.',
+        createdAt: '2015-08-06T10:21:17.701Z'
+      },
+      {
+        name: 'Name Bob',
+        status: 'accepted',
+        bio: 'What a cool kid.',
+        createdAt: '2015-08-06T10:21:17.701Z'
+      },
+      {
+        name: 'Chun Li',
+        status: 'reviewing',
+        bio: 'What a cool kid.',
+        createdAt: '2015-08-06T10:21:17.701Z'
+      },
+      {
+        name: 'Ellie Phant',
+        status: 'reviewing',
+        bio: 'What a cool kid.',
+        createdAt: '2015-08-06T10:21:17.701Z'
+      },
+      {
+        name: 'Germany Canada',
+        status: 'reviewing',
+        bio: 'What a cool kid.',
+        createdAt: '2015-08-06T10:21:17.701Z'
+      },
+    ]
   }
 }
 

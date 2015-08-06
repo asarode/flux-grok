@@ -19,8 +19,13 @@ class FilterCardList extends React.Component {
   }
 
   get cards() {
-    // 1) Render the applicant cards by mapping each object in the applicant
-    //    array to an ApplicantCard component with the right props
+    return this.props.applicants.map((item, i) => {
+      return (
+        <ApplicantCard
+          key={i}
+          item={item}/>
+      )
+    })
   }
 }
 
