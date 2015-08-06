@@ -5,7 +5,8 @@ body {
 }
 
 .fg-bar-main {
-  background-color: #f0f0f0;
+  background-color: #45395C;
+  color: #fff;
   padding: 20px;
 }
 
@@ -36,4 +37,34 @@ body {
 
 .fg-navbar-link--active {
   text-decoration: underline;
+} 
+
+form {
+  padding: 20px;
+}
+
+.form-field {
+  margin-bottom: 10px;
+}
+
+.form-field label {
+  display: block
+}
+
+.fg-applicant-card {
+  width: 90vw;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 3px;
+  margin-top: 10px;
+}
+
+.fg-applicant-card-head h3,
+.fg-applicant-card-head span,
+.fg-applicant-card-head button {
+  display: inline-block;
+  margin: 0 20px 0 0;
 }

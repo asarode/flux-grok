@@ -7,6 +7,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import config from 'config'
+import { queryBuilder as qb } from './app/utils'
 
 let app = express();
     app.use(bodyParser.urlencoded({ extended: true }))
@@ -14,7 +15,7 @@ let app = express();
 
     app.use((req, res, next) => {
       res.setHeader('Access-Control-Allow-Origin', '*')
-      res.setHeader('Access-Control-Allow-Methods', 'GET, POST')
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
       res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization')
       next()
     });
@@ -69,20 +70,21 @@ app.get('/applicants/:id', (req, res) => {
 })
 
 app.post('/applicants', (req, res) => {
-  let applicant       = new Applicant()
-  applicant.firstName = req.body.firstName
-  applicant.lastName  = req.body.lastName
-  applicant.bio       = req.body.bio
+  let applicant   = new Applicant()
+  applicant.name  = req.body.name
+  applicant.bio   = req.body.bio
 
   applicant
-    .save((err) => {
+    .save((err, data) => {
       if (err) {
+        console.error(err)
         res
         .status(500)
         .send({ message: 'Error saving new applicant: ', err })
         return
       }
-      res.json({ message: 'Applicant created, good work buddy' })
+      console.log(data)
+      res.send(data)
     })
 })
 
@@ -106,7 +108,7 @@ app.put('/applicants/:id', (req, res) => {
     })
 })
 
-app.delete('applicants/:id', (req, res) => {
+app.delete('/applicants/:id', (req, res) => {
   Applicant.remove({ _id: req.params.id }, (err, data) => {
     if (err) {
       res

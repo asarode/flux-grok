@@ -9,13 +9,13 @@ class ApplicantStore {
       applicants: []
     }
     this.bindListeners({
-      onFetch: ApplicantActions.fetch
+      onFetchSuccess: ApplicantActions.fetchSuccess
     })
   }
 
-  onFetch(data) {
+  onFetchSuccess(res) {
     this.setState({
-      applicants: data
+      applicants: res.data
     })
   }
 }

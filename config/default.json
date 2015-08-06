@@ -3,7 +3,7 @@
     "db": {
       "uri": "mongodb://<dbuser>:<dbpassword>@ds037467.mongolab.com:37467/flux-grok",
       "host": "localhost",
-      "port": 8000
+      "port": 5000
     }
   }
 }

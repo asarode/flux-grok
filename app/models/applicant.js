@@ -4,8 +4,7 @@ import mongoose from 'mongoose';
 let Schema = mongoose.Schema;
 
 let ApplicantSchema = new Schema({
-  firstName: String,
-  lastName: String,
+  name: String,
   createdAt: { type: Date, default: Date.now() },
   bio: String,
   status: { type: String, enum: ['reviewing', 'accepted'], default: 'reviewing' }

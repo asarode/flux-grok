@@ -3,7 +3,7 @@
 import React from 'react'
 import cx from 'classname'
 import Header from './header'
-import ApplicantList from './applicant-list'
+import { RouteHandler } from 'react-router'
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class App extends React.Component {
     return (
       <div>
         <Header/>
-        <ApplicantList/>
+        <RouteHandler/>
       </div>
     )
   }
