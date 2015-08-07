@@ -14,45 +14,9 @@ class App extends React.Component {
     return (
       <div>
         <Header/>
-        <ApplicantList
-          applicants={this.mockApplicants}/>
+        <ApplicantList/>
       </div>
     )
-  }
-  
-  get mockApplicants() {
-    return [
-      {
-        name: 'First Last',
-        status: 'reviewing',
-        bio: 'What a cool kid.',
-        createdAt: '2015-08-06T10:21:17.701Z'
-      },
-      {
-        name: 'Name Bob',
-        status: 'accepted',
-        bio: 'What a cool kid.',
-        createdAt: '2015-08-06T10:21:17.701Z'
-      },
-      {
-        name: 'Chun Li',
-        status: 'reviewing',
-        bio: 'What a cool kid.',
-        createdAt: '2015-08-06T10:21:17.701Z'
-      },
-      {
-        name: 'Ellie Phant',
-        status: 'reviewing',
-        bio: 'What a cool kid.',
-        createdAt: '2015-08-06T10:21:17.701Z'
-      },
-      {
-        name: 'Germany Canada',
-        status: 'reviewing',
-        bio: 'What a cool kid.',
-        createdAt: '2015-08-06T10:21:17.701Z'
-      },
-    ]
   }
 }
 

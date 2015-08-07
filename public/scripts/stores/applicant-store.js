@@ -5,11 +5,17 @@ import alt from '../alt'
 
 class ApplicantStore {
   constructor() {
-    // What state are we keeping track of in this store?
-    this.state = {}
+    this.state = {
+      applicants: []
+    }
     this.bindListeners({
-      // Bind handlers to the action(s) that get dispatched in 
-      // applicant-actions.js
+      onFetchSuccess: ApplicantActions.fetchSuccess
+    })
+  }
+
+  onFetchSuccess(res) {
+    this.setState({
+      applicants: res.data
     })
   }
 }
